@@ -15,12 +15,12 @@ const SelectDropdown = ({ options, value, onChange, placeholder }) => {
                 className='w-full text-sm text-black outline-none bg-white border  border-slate-200 px-2.5 py-3 rounded-md flex justify-between items-center'
             >
                 {value ? options.find((opt) => opt.value === value)?.label : placeholder}
-                <span className='ml-2'> {isOpen ? <LuChevronDown className="rotate-180" />
+                <span className='mr-2'> {isOpen ? <LuChevronDown className="rotate-180" />
                     : <LuChevronDown />} </span>
             </button>
             {/* Drop Down */}
             {isOpen && (
-                <div className='absolute w-full bg-white border-slate-200 rounded-md mt-1 shadow-md z-10'>
+                <div className='absolute bg-white border-slate-200 rounded-md mt-1 shadow-md z-10'>
                     {options.map((option) => (
                         <div
                             key={option.value}
