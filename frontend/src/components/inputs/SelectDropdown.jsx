@@ -3,29 +3,36 @@ import { LuChevronDown } from 'react-icons/lu';
 
 const SelectDropdown = ({ options, value, onChange, placeholder }) => {
     const [isOpen, setIsOpen] = useState(false);
+
     const handleSelect = (option) => {
         onChange(option);
         setIsOpen(false);
-    }
+    };
+
+    const selectedLabel = options.find(opt => opt.value === value)?.label;
+
     return (
-        <div className=''>
-            {/* drop down button */}
+        <div className="relative w-full">
+            {/* Dropdown button */}
             <button
+                type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className='w-full text-sm text-black outline-none bg-white border  border-slate-200 px-2.5 py-3 rounded-md flex justify-between items-center'
+                className="w-full text-sm text-gray-900 outline-none bg-white border border-slate-200 px-3 py-3 rounded-md flex justify-between items-center"
             >
-                {value ? options.find((opt) => opt.value === value)?.label : placeholder}
-                <span className='ml-2'> {isOpen ? <LuChevronDown className="rotate-180" />
-                    : <LuChevronDown />} </span>
+                <span className={`truncate ${!selectedLabel ? 'text-gray-700' : ''}`}>
+                    {selectedLabel || placeholder || "Select option"}
+                </span>
+                <LuChevronDown className={`ml-2 transition-transform ${isOpen ? "rotate-180" : ""}`} />
             </button>
-            {/* Drop Down */}
+
+            {/* Dropdown content */}
             {isOpen && (
-                <div className='absolute w-full bg-white border-slate-200 rounded-md mt-1 shadow-md z-10'>
+                <div className="absolute mt-1 w-full bg-white border border-slate-200 rounded-md shadow-md z-10">
                     {options.map((option) => (
                         <div
                             key={option.value}
                             onClick={() => handleSelect(option.value)}
-                            className='py-3 px-3 text-sm cursor-pointer hover:bg-gray-100'
+                            className="py-2 px-3 text-sm cursor-pointer hover:bg-gray-100"
                         >
                             {option.label}
                         </div>

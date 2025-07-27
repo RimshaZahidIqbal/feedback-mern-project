@@ -1,3 +1,4 @@
 import Input from './Input.jsx';
 import SelectDropdown from './SelectDropdown.jsx';
-export { Input, SelectDropdown };
+import StarRating from './StarRating.jsx';
+export { Input, SelectDropdown, StarRating };

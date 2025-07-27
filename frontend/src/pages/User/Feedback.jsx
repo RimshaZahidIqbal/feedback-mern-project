@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Input, SelectDropdown } from '../../components/inputs';
+import { Input, SelectDropdown, StarRating } from '../../components/inputs';
 import { COURSES } from '../../utils/data';
 import { toast } from 'react-toastify';
 import { Navbar } from '../../components/layouts';
@@ -50,9 +50,9 @@ const Feedback = () => {
     };
 
     return (
-        <div className="min-h-screen bg-blue-50 flex flex-col items-center p-4">
+        <div className="min-h-screen bg-blue-50 flex flex-col items-center">
             <Navbar />
-            <div className="w-full max-w-xl mt-8 bg-white form-card">
+            <div className="w-full max-w-xl mt-8 rounded-4xl bg-white form-card">
                 <h2 className="text-xl md:text-2xl font-semibold text-blue-800 mb-5 text-center">
                     Feedback Time
                 </h2>
@@ -86,16 +86,16 @@ const Feedback = () => {
                         <label className="text-sm font-medium text-gray-700">Course</label>
                         <SelectDropdown
                             options={courseOptions}
-                            value={formData.course}
-                            onChange={(val) => handleDropdownChange('course', val)}
+                            value={formData.rating}
+                            onChange={(val) => handleDropdownChange('rating', val)}
+                            placeholder="Select rating"
                         />
                     </div>
 
                     {/* Rating Dropdown */}
                     <div>
                         <label className="text-sm font-medium text-gray-700">Rating</label>
-                        <SelectDropdown
-                            options={ratingOptions}
+                        <StarRating
                             value={formData.rating}
                             onChange={(val) => handleDropdownChange('rating', val)}
                         />
