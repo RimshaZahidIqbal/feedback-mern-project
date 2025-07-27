@@ -36,7 +36,7 @@ const Feedback = () => {
 
         const { name, email, course, rating } = formData;
         if (!name || !email || !course || !rating) {
-            toast.error("All fields except comments are required.");
+            // toast.error("All fields except comments are required.");
             return;
         }
 
