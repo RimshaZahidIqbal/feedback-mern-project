@@ -9,11 +9,14 @@ const app = express();
 const authRoutes = require("./routes/authRoutes");
 const feedbackRoutes = require("./routes/feedbackRoutes");
 // Middlewares
-app.use(cors({
-    origin: process.env.CLIENT_URL || "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-}));
+// app.use(cors({
+//     origin: process.env.CLIENT_URL || "*",
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+// }));
+
+app.use(cors(process.env.CLIENT_URL));
+
 app.use(express.json());
 
 // Connect to DB

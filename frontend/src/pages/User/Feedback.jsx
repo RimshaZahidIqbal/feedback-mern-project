@@ -54,7 +54,7 @@ const Feedback = () => {
             <Navbar />
             <div className="w-full max-w-xl mt-8 bg-white form-card">
                 <h2 className="text-xl md:text-2xl font-semibold text-blue-800 mb-5 text-center">
-                    Submit Feedback
+                    Feedback Time
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Name Field */}
