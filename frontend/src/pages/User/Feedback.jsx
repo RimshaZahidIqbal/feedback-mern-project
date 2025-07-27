@@ -86,9 +86,9 @@ const Feedback = () => {
                         <label className="text-sm font-medium text-gray-700">Course</label>
                         <SelectDropdown
                             options={courseOptions}
-                            value={formData.rating}
-                            onChange={(val) => handleDropdownChange('rating', val)}
-                            placeholder="Select rating"
+                            value={formData.course}
+                            onChange={(val) => handleDropdownChange('course', val)}
+                            placeholder="Select Course"
                         />
                     </div>
 
